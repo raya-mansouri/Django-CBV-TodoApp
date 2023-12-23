@@ -31,3 +31,4 @@ Project it self has the user creation form but still in order to use the admin y
 python3 manage.py createsuperuser
 ```
 # Django-Template-Structure
+# Django-Template-Structure
