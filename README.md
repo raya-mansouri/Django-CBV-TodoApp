@@ -1,6 +1,3 @@
-# Django-Template-Structure
-
-
 
 ### Setup
 To get this repository, run the following command inside your git enabled terminal
@@ -29,6 +26,3 @@ python3 manage.py migrate
 Project it self has the user creation form but still in order to use the admin you need to create a super user.you can use the createsuperuser option to make a super user.
 ```bash
 python3 manage.py createsuperuser
-```
-# Django-Template-Structure
-# Django-Template-Structure
