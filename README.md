@@ -22,5 +22,12 @@ pip install -r requirements.txt
 Once you have installed django and other packages, go to the cloned repo directory and run the following command
 
 ```bash
-python manage.py makemigrations
+cd core
+python3 manage.py migrate
 ```
+### options
+Project it self has the user creation form but still in order to use the admin you need to create a super user.you can use the createsuperuser option to make a super user.
+```bash
+python3 manage.py createsuperuser
+```
+# Django-Template-Structure
