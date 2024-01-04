@@ -2,7 +2,7 @@
 ### Setup
 To get this repository, run the following command inside your git enabled terminal
 ```bash
-git clone https://github.com/raya-mansouri/Django-Template-Structure/
+git clone git clone https://github.com/raya-mansouri/Django-Template-Structure/
 ```
 
 ### Getting ready
