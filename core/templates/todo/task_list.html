@@ -1,0 +1,64 @@
+<h1>Tasks</h1>
+{% comment %} {% if user.is_authenticated %} {% endcomment %}
+<a type='button' href="{% url 'task:task-create' %}">Add new One</a>
+{% comment %} {% endif %} {% endcomment %}
+<ul>
+  {% for task in tasks %}
+    <li>
+      <h3><a href="{% url 'task:task-detail' pk=task.id %}">{{ task.title }}</a></h3>
+    </li>
+    <small>{{ task.created_date|date }}</small>
+    {% empty %}
+    <li>No task yet.</li>
+  {% endfor %}
+</ul>
+<!-- Right elements -->
+<div class="d-flex align-items-center mr-5">
+  <div class="input-group rounded mx-2 px-3">
+    {% comment %} <form class="d-flex" role="search">
+      <input class="form-control me-2" type="text" placeholder="Search.." name="search" aria-label="Search" 
+      {% if search %} value="{{ search }}" {% endif %}>
+      <button class="btn btn-outline-success me-2" type="submit">Search</button>
+      <a class="me-2" href="{% url 'task:task-list' %}"><i class="fa fa-undo"></i></a>
+    </form> {% endcomment %}
+  </div>
+  {% if user.is_authenticated %}
+      <!-- Avatar -->
+      <div class="dropdown mx-2 px-3 data-bs-theme=" dark"">
+
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+          <!--<li>-->
+          <!--  <a class="dropdown-item" href="#">My profile</a>-->
+          <!--</li>-->
+          <!--<li>-->
+          <!--  <a class="dropdown-item" href="#">Settings</a>-->
+          <!--</li>-->
+          <li>
+            <a class="dropdown-item" href="{% url 'logout' %}?next={% url 'task:task-list' %}">Logout</a>
+          </li>
+        </ul>
+      </div>
+  {% else %}
+      <ul class="navbar-nav me-auto mb-2 mr-2 mb-lg-0 mx-2 px-3">>
+        <li>
+          <a class="nav-link" href="{% url 'login' %}?next={% url 'task:task-list' %}">Login</a>
+        </li>
+      </ul>
+  {% endif %}
+</div>
+<!-- Right elements -->
+<div class="pagination">
+  <span class="step-links">
+    {% if page_obj.has_previous %}
+      <a href="?page=1">&laquo; first</a>
+      <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+    {% endif %}
+
+    <span class="current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+
+    {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}">next</a>
+      <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+    {% endif %}
+  </span>
+</div>

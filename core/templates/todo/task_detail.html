@@ -1,0 +1,10 @@
+<h1>{{ task.title }}</h1>
+<p>User: {{ task.user }}</p>
+<p>Published: {{ task.created_date|date }}</p>
+<p>Date: {{ now|date }}</p>
+{% if task.user == user %}
+<a style='background-color: #548aff; color: white;' href="{% url 'task:task-update' pk=task.id %}">Edit</a>
+<a style='background-color: #f44336; color: white;' href="{% url 'task:task-delete' pk=task.id %}">Delete</a>
+{% endif %}
+<hr>
+<small ><a href="{% url 'task:task-list' %}">Go back</a></small>
